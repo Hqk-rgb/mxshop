@@ -619,7 +619,7 @@ var file_user_proto_rawDesc = []byte{
 	0x4d, 0x6f, 0x62, 0x69, 0x6c, 0x65, 0x12, 0x0e, 0x2e, 0x4d, 0x6f, 0x62, 0x69, 0x6c, 0x65, 0x52,
 	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x11, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x49, 0x6e, 0x66,
 	0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2c, 0x0a, 0x0b, 0x47, 0x65, 0x74,
-	0x55, 0x73, 0x65, 0x72, 0x42, 0x79, 0x49, 0x44, 0x12, 0x0a, 0x2e, 0x49, 0x64, 0x52, 0x65, 0x71,
+	0x55, 0x73, 0x65, 0x72, 0x42, 0x79, 0x49, 0x64, 0x12, 0x0a, 0x2e, 0x49, 0x64, 0x52, 0x65, 0x71,
 	0x75, 0x65, 0x73, 0x74, 0x1a, 0x11, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x49, 0x6e, 0x66, 0x6f, 0x52,
 	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x30, 0x0a, 0x0a, 0x43, 0x72, 0x65, 0x61, 0x74,
 	0x65, 0x55, 0x73, 0x65, 0x72, 0x12, 0x0f, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x55, 0x73,
@@ -628,7 +628,7 @@ var file_user_proto_rawDesc = []byte{
 	0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x12, 0x0f, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65,
 	0x55, 0x73, 0x65, 0x72, 0x49, 0x6e, 0x66, 0x6f, 0x1a, 0x16, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c,
 	0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79,
-	0x12, 0x33, 0x0a, 0x0d, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x50, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72,
+	0x12, 0x33, 0x0a, 0x0d, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x50, 0x61, 0x73, 0x73, 0x57, 0x6f, 0x72,
 	0x64, 0x12, 0x12, 0x2e, 0x50, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x43, 0x68, 0x65, 0x63,
 	0x6b, 0x49, 0x6e, 0x66, 0x6f, 0x1a, 0x0e, 0x2e, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x52, 0x65, 0x73,
 	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x0a, 0x5a, 0x08, 0x2e, 0x2f, 0x3b, 0x70, 0x72, 0x6f, 0x74,
@@ -664,16 +664,16 @@ var file_user_proto_depIdxs = []int32{
 	7, // 0: UserListResponse.data:type_name -> UserInfoResponse
 	2, // 1: User.GetUserList:input_type -> PageInfo
 	3, // 2: User.GetUserByMobile:input_type -> MobileRequest
-	4, // 3: User.GetUserByID:input_type -> IdRequest
+	4, // 3: User.GetUserById:input_type -> IdRequest
 	5, // 4: User.CreateUser:input_type -> CreateUserInfo
 	6, // 5: User.UpdateUser:input_type -> UpdateUserInfo
-	0, // 6: User.CheckPassword:input_type -> PasswordCheckInfo
+	0, // 6: User.CheckPassWord:input_type -> PasswordCheckInfo
 	8, // 7: User.GetUserList:output_type -> UserListResponse
 	7, // 8: User.GetUserByMobile:output_type -> UserInfoResponse
-	7, // 9: User.GetUserByID:output_type -> UserInfoResponse
+	7, // 9: User.GetUserById:output_type -> UserInfoResponse
 	7, // 10: User.CreateUser:output_type -> UserInfoResponse
 	9, // 11: User.UpdateUser:output_type -> google.protobuf.Empty
-	1, // 12: User.CheckPassword:output_type -> CheckResponse
+	1, // 12: User.CheckPassWord:output_type -> CheckResponse
 	7, // [7:13] is the sub-list for method output_type
 	1, // [1:7] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -830,10 +830,10 @@ const _ = grpc.SupportPackageIsVersion6
 type UserClient interface {
 	GetUserList(ctx context.Context, in *PageInfo, opts ...grpc.CallOption) (*UserListResponse, error)
 	GetUserByMobile(ctx context.Context, in *MobileRequest, opts ...grpc.CallOption) (*UserInfoResponse, error)
-	GetUserByID(ctx context.Context, in *IdRequest, opts ...grpc.CallOption) (*UserInfoResponse, error)
+	GetUserById(ctx context.Context, in *IdRequest, opts ...grpc.CallOption) (*UserInfoResponse, error)
 	CreateUser(ctx context.Context, in *CreateUserInfo, opts ...grpc.CallOption) (*UserInfoResponse, error)
 	UpdateUser(ctx context.Context, in *UpdateUserInfo, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	CheckPassword(ctx context.Context, in *PasswordCheckInfo, opts ...grpc.CallOption) (*CheckResponse, error)
+	CheckPassWord(ctx context.Context, in *PasswordCheckInfo, opts ...grpc.CallOption) (*CheckResponse, error)
 }
 
 type userClient struct {
@@ -862,9 +862,9 @@ func (c *userClient) GetUserByMobile(ctx context.Context, in *MobileRequest, opt
 	return out, nil
 }
 
-func (c *userClient) GetUserByID(ctx context.Context, in *IdRequest, opts ...grpc.CallOption) (*UserInfoResponse, error) {
+func (c *userClient) GetUserById(ctx context.Context, in *IdRequest, opts ...grpc.CallOption) (*UserInfoResponse, error) {
 	out := new(UserInfoResponse)
-	err := c.cc.Invoke(ctx, "/User/GetUserByID", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/User/GetUserById", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -889,9 +889,9 @@ func (c *userClient) UpdateUser(ctx context.Context, in *UpdateUserInfo, opts ..
 	return out, nil
 }
 
-func (c *userClient) CheckPassword(ctx context.Context, in *PasswordCheckInfo, opts ...grpc.CallOption) (*CheckResponse, error) {
+func (c *userClient) CheckPassWord(ctx context.Context, in *PasswordCheckInfo, opts ...grpc.CallOption) (*CheckResponse, error) {
 	out := new(CheckResponse)
-	err := c.cc.Invoke(ctx, "/User/CheckPassword", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/User/CheckPassWord", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -902,10 +902,10 @@ func (c *userClient) CheckPassword(ctx context.Context, in *PasswordCheckInfo, o
 type UserServer interface {
 	GetUserList(context.Context, *PageInfo) (*UserListResponse, error)
 	GetUserByMobile(context.Context, *MobileRequest) (*UserInfoResponse, error)
-	GetUserByID(context.Context, *IdRequest) (*UserInfoResponse, error)
+	GetUserById(context.Context, *IdRequest) (*UserInfoResponse, error)
 	CreateUser(context.Context, *CreateUserInfo) (*UserInfoResponse, error)
 	UpdateUser(context.Context, *UpdateUserInfo) (*emptypb.Empty, error)
-	CheckPassword(context.Context, *PasswordCheckInfo) (*CheckResponse, error)
+	CheckPassWord(context.Context, *PasswordCheckInfo) (*CheckResponse, error)
 }
 
 // UnimplementedUserServer can be embedded to have forward compatible implementations.
@@ -918,8 +918,8 @@ func (*UnimplementedUserServer) GetUserList(context.Context, *PageInfo) (*UserLi
 func (*UnimplementedUserServer) GetUserByMobile(context.Context, *MobileRequest) (*UserInfoResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserByMobile not implemented")
 }
-func (*UnimplementedUserServer) GetUserByID(context.Context, *IdRequest) (*UserInfoResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetUserByID not implemented")
+func (*UnimplementedUserServer) GetUserById(context.Context, *IdRequest) (*UserInfoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserById not implemented")
 }
 func (*UnimplementedUserServer) CreateUser(context.Context, *CreateUserInfo) (*UserInfoResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateUser not implemented")
@@ -927,8 +927,8 @@ func (*UnimplementedUserServer) CreateUser(context.Context, *CreateUserInfo) (*U
 func (*UnimplementedUserServer) UpdateUser(context.Context, *UpdateUserInfo) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateUser not implemented")
 }
-func (*UnimplementedUserServer) CheckPassword(context.Context, *PasswordCheckInfo) (*CheckResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CheckPassword not implemented")
+func (*UnimplementedUserServer) CheckPassWord(context.Context, *PasswordCheckInfo) (*CheckResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CheckPassWord not implemented")
 }
 
 func RegisterUserServer(s *grpc.Server, srv UserServer) {
@@ -971,20 +971,20 @@ func _User_GetUserByMobile_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
-func _User_GetUserByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _User_GetUserById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UserServer).GetUserByID(ctx, in)
+		return srv.(UserServer).GetUserById(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/User/GetUserByID",
+		FullMethod: "/User/GetUserById",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServer).GetUserByID(ctx, req.(*IdRequest))
+		return srv.(UserServer).GetUserById(ctx, req.(*IdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1025,20 +1025,20 @@ func _User_UpdateUser_Handler(srv interface{}, ctx context.Context, dec func(int
 	return interceptor(ctx, in, info, handler)
 }
 
-func _User_CheckPassword_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _User_CheckPassWord_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(PasswordCheckInfo)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UserServer).CheckPassword(ctx, in)
+		return srv.(UserServer).CheckPassWord(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/User/CheckPassword",
+		FullMethod: "/User/CheckPassWord",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServer).CheckPassword(ctx, req.(*PasswordCheckInfo))
+		return srv.(UserServer).CheckPassWord(ctx, req.(*PasswordCheckInfo))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1056,8 +1056,8 @@ var _User_serviceDesc = grpc.ServiceDesc{
 			Handler:    _User_GetUserByMobile_Handler,
 		},
 		{
-			MethodName: "GetUserByID",
-			Handler:    _User_GetUserByID_Handler,
+			MethodName: "GetUserById",
+			Handler:    _User_GetUserById_Handler,
 		},
 		{
 			MethodName: "CreateUser",
@@ -1068,8 +1068,8 @@ var _User_serviceDesc = grpc.ServiceDesc{
 			Handler:    _User_UpdateUser_Handler,
 		},
 		{
-			MethodName: "CheckPassword",
-			Handler:    _User_CheckPassword_Handler,
+			MethodName: "CheckPassWord",
+			Handler:    _User_CheckPassWord_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

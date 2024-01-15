@@ -5,10 +5,10 @@ option go_package = "./;proto";
 service User{
   rpc GetUserList(PageInfo) returns (UserListResponse); // 用户列表
   rpc GetUserByMobile(MobileRequest) returns (UserInfoResponse); // 通过手机号查询用户
-  rpc GetUserByID(IdRequest) returns (UserInfoResponse); // 通过用户ID查询用户
+  rpc GetUserById(IdRequest) returns (UserInfoResponse); // 通过用户ID查询用户
   rpc CreateUser(CreateUserInfo) returns (UserInfoResponse); // 创建用户
   rpc UpdateUser(UpdateUserInfo) returns (google.protobuf.Empty); // 更新用户
-  rpc CheckPassword(PasswordCheckInfo) returns (CheckResponse); // 校验密码
+  rpc CheckPassWord(PasswordCheckInfo) returns (CheckResponse); // 校验密码
 }
 
 message PasswordCheckInfo{
